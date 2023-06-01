@@ -5,15 +5,73 @@
 </head>
 <body>
     
-<form>
+<form class="boxed">
   
     <div class="segment">
       <h1>ScoreMe</h1>
     </div>
     
+    <div class="parameter">
+      <h2>Age</h2>
+    </div>
+  
     <label>
-      <input type="number" min="18" max="100" step="1" placeholder="Age"/>
+      <input type="number" min="18" max="100" step="1" placeholder="18+"/>
     </label>
+  
+    <div class="parameter">
+      <h2>Sex</h2>
+    </div>
+  
+      <input type="radio" id="android" name="skills" value="Android Development">
+    <label for="android">Male</label><br>
+    <input type="radio" id="ios" name="skills" value="iOS Development">
+      <label for="ios">Female</label></br>
+  
+    <div class="parameter">
+      <h2>Credit amount</h2>
+    </div>
+  
+    <label>
+      <input type="text" min="1000" max="75000" step="1000" placeholder="up to 75 000 ₽"/>
+    </label>
+  
+      <div class="parameter">
+      <h2>Duration</h2>
+    </div>
+  
+    <label>
+      <input type="number" min="4" max="72" step="1" placeholder="4 to 72 months"/>
+    </label>
+   
+  </form>
+  
+  
+    <form class="boxed">
+
+    <br><br>
+    <input type="submit" value="SUBMIT">
+  </form>
+  
+  
+  <form>
+    <label>
+      <input type="radio" id="male" name="sex" value="male"/>Male
+      <input type="radio" id="female" name="sex" value="female"/>Female
+    </label>
+    <!-- <input type="radio" id="html" name="fav_language" value="HTML">
+    <label for="html">HTML</label><br>
+    <input type="radio" id="css" name="fav_language" value="CSS">
+    <label for="css">CSS</label><br>
+    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+    <label for="javascript">JavaScript</label> -->
+    <p>Select Skill:</p>
+
+
+    <label for="points">Points (between 0 and 10):</label>
+<input type="range" id="points" name="points" min="0" max="10">
+<label for="fname">First name:</label>
+<input type="text" id="fname" name="fname">
     <label>
       <input type="password" placeholder="Password"/>
     </label>
@@ -32,4 +90,14 @@
       <button class="unit" type="button"><i class="icon ion-md-search"></i></button>
     </div>
     
+  </form>
+
+
+  
+  <form method="post">
+    <fieldset>
+      <legend>Do you agree to the terms?</legend>
+      <label><input type="radio" name="radio" value="yes" /> Yes</label>
+      <label><input type="radio" name="radio" value="no" /> No</label>
+    </fieldset>
   </form>

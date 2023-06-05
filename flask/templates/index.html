@@ -1,103 +1,194 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
 </head>
+
 <body>
-    
-<form class="boxed">
-  
+
+  <form class="boxed" action="/predict" method="post">
+
     <div class="segment">
       <h1>ScoreMe</h1>
     </div>
-    
+
     <div class="parameter">
       <h2>Age</h2>
     </div>
-  
-    <label>
-      <input type="number" min="18" max="100" step="1" placeholder="18+"/>
-    </label>
-  
+
+    <div>
+      <label for="age">
+        <input type="number" name="age" id="age" min="18" max="117" step="1" placeholder="18+" required />
+      </label>
+    </div>
+
     <div class="parameter">
       <h2>Sex</h2>
     </div>
-  
-      <input type="radio" id="android" name="skills" value="Android Development">
-    <label for="android">Male</label><br>
-    <input type="radio" id="ios" name="skills" value="iOS Development">
-      <label for="ios">Female</label></br>
-  
+    <div class="input-group">
+      <span>
+        <input type="radio" id="male" name="sex" value="0" required>
+        <label for="male">Male</label>
+      </span>
+      <span>
+        <input type="radio" id="female" name="sex" value="1">
+        <label for="female">Female</label>
+      </span>
+    </div>
+
     <div class="parameter">
       <h2>Credit amount</h2>
     </div>
-  
-    <label>
-      <input type="text" min="1000" max="75000" step="1000" placeholder="up to 75 000 ₽"/>
-    </label>
-  
-      <div class="parameter">
+
+    <div>
+      <label for="credit_amount">
+        <input type="number" name="credit_amount" id="credit_amount" min="1000" max="75000" step="500" placeholder="up to 75 000 ₽" required />
+      </label>
+    </div>
+
+    <div class="parameter">
       <h2>Duration</h2>
     </div>
-  
-    <label>
-      <input type="number" min="4" max="72" step="1" placeholder="4 to 72 months"/>
-    </label>
-   
-  </form>
-  
-  
-    <form class="boxed">
 
-    <br><br>
-    <input type="submit" value="SUBMIT">
-  </form>
-  
-  
-  <form>
-    <label>
-      <input type="radio" id="male" name="sex" value="male"/>Male
-      <input type="radio" id="female" name="sex" value="female"/>Female
-    </label>
-    <!-- <input type="radio" id="html" name="fav_language" value="HTML">
-    <label for="html">HTML</label><br>
-    <input type="radio" id="css" name="fav_language" value="CSS">
-    <label for="css">CSS</label><br>
-    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-    <label for="javascript">JavaScript</label> -->
-    <p>Select Skill:</p>
-
-
-    <label for="points">Points (between 0 and 10):</label>
-<input type="range" id="points" name="points" min="0" max="10">
-<label for="fname">First name:</label>
-<input type="text" id="fname" name="fname">
-    <label>
-      <input type="password" placeholder="Password"/>
-    </label>
-    <button class="red" type="button"><i class="icon ion-md-lock"></i> Log in</button>
-    
-    <div class="segment">
-      <button class="unit" type="button"><i class="icon ion-md-arrow-back"></i></button>
-      <button class="unit" type="button"><i class="icon ion-md-bookmark"></i></button>
-      <button class="unit" type="button"><i class="icon ion-md-settings"></i></button>
-    </div>
-    
-    <div class="input-group">
-      <label>
-        <input type="text" placeholder="Email Address"/>
+    <div>
+      <label for="duration">
+        <input type="number" name="duration" id="duration" min="4" max="72" step="1" placeholder="4 to 72 months" required />
       </label>
-      <button class="unit" type="button"><i class="icon ion-md-search"></i></button>
     </div>
-    
-  </form>
 
+    <div class="parameter">
+      <h2>Job</h2>
+    </div>
 
-  
-  <form method="post">
-    <fieldset>
-      <legend>Do you agree to the terms?</legend>
-      <label><input type="radio" name="radio" value="yes" /> Yes</label>
-      <label><input type="radio" name="radio" value="no" /> No</label>
-    </fieldset>
+    <div class="input-group">
+      <span>
+        <input type="radio" id="job_unskilled_non_resident" name="job" value="job_unskilled_non_resident" required>
+        <label for="job_unskilled_non_resident">Unskilled, non-resident</label>
+      </span>
+      <span>
+        <input type="radio" id="job_unskilled_and_resident" name="job" value="job_unskilled_and_resident">
+        <label for="job_unskilled_and_resident">Unskilled, resident</label>
+      </span>
+      <span>
+        <input type="radio" id="job_skilled" name="job" value="job_skilled">
+        <label for="job_skilled">Skilled</label>
+      </span>
+      <span>
+        <input type="radio" id="job_highly_skilled" name="job" value="job_highly_skilled">
+        <label for="job_highly_skilled">Highly skilled</label>
+      </span>
+    </div>
+
+    <div class="parameter">
+      <h2>Housing</h2>
+    </div>
+
+    <div class="input-group">
+      <span>
+        <input type="radio" id="housing_own" name="housing" value="housing_own" required>
+        <label for="housing_own">Own</label>
+      </span>
+      <span>
+        <input type="radio" id="housing_rent" name="housing" value="housing_rent">
+        <label for="housing_rent">Rent</label>
+      </span>
+      <span>
+        <input type="radio" id="housing_free" name="housing" value="housing_free">
+        <label for="housing_free">Free</label>
+      </span>
+    </div>
+
+    <div class="parameter">
+      <h2>Saving accounts</h2>
+    </div>
+
+    <div class="input-group">
+      <span>
+        <input type="radio" id="saving_accounts_little" name="saving_accounts" value="saving_accounts_little" required>
+        <label for="saving_accounts_little">Little</label>
+      </span>
+      <span>
+        <input type="radio" id="saving_accounts_moderate" name="saving_accounts" value="saving_accounts_moderate">
+        <label for="saving_accounts_moderate">Moderate</label>
+      </span>
+      <span>
+        <input type="radio" id="saving_accounts_quite_rich" name="saving_accounts" value="saving_accounts_quite_rich">
+        <label for="saving_accounts_quite_rich">Quite rich</label>
+      </span>
+      <span>
+        <input type="radio" id="saving_accounts_rich" name="saving_accounts" value="saving_accounts_quite_rich">
+        <label for="saving_accounts_quite_rich">Rich</label>
+      </span>
+      <span>
+        <input type="radio" id="saving_accounts_none" name="saving_accounts" value="dummy">
+        <label for="saving_accounts_none">None</label>
+      </span>
+    </div>
+
+    <div class="parameter">
+      <h2>Checking accounts</h2>
+    </div>
+
+    <div class="input-group">
+      <span>
+        <input type="radio" id="checking_account_little" name="checking_account" value="checking_account_little" required>
+        <label for="checking_account_little">Little</label>
+      </span>
+      <span>
+        <input type="radio" id="checking_account_moderate" name="checking_account" value="checking_account_moderate">
+        <label for="checking_account_moderate">Moderate</label>
+      </span>
+      <span>
+        <input type="radio" id="checking_account_rich" name="checking_account" value="checking_account_rich">
+        <label for="checking_account_rich">Rich</label>
+      </span>
+      <span>
+        <input type="radio" id="checking_account_none" name="checking_account" value="dummy">
+        <label for="checking_account_none">None</label>
+      </span>
+    </div>
+
+    <div class="parameter">
+      <h2>Purpose</h2>
+    </div>
+
+    <div class="input-group">
+      <span>
+        <input type="radio" id="purpose_business" name="purpose" value="purpose_business" required>
+        <label for="purpose_business">Business</label>
+      </span>
+      <span>
+        <input type="radio" id="purpose_car" name="purpose" value="purpose_car">
+        <label for="purpose_car">Car</label><br>
+      </span>
+      <span>
+        <input type="radio" id="purpose_domestic_appliances" name="purpose" value="purpose_domestic_appliances">
+        <label for="purpose_domestic_appliances">Domestic appliances</label>
+      </span>
+      <span>
+        <input type="radio" id="purpose_education" name="purpose" value="purpose_education">
+        <label for="purpose_education">Education</label>
+      </span>
+      <span>
+        <input type="radio" id="purpose_furniture_equipment" name="purpose" value="purpose_furniture_equipment">
+        <label for="purpose_furniture_equipment">Furniture/Equipment</label><br>
+      </span>
+      <span>
+        <input type="radio" id="purpose_radio_tv" name="purpose" value="purpose_radio_tv">
+        <label for="purpose_radio_tv">Radio/TV</label><br>
+      </span>
+      <span>
+        <input type="radio" id="purpose_repairs" name="purpose" value="purpose_repairs">
+        <label for="purpose_repairs">Repairs</label>
+      </span>
+      <span>
+        <input type="radio" id="purpose_vacation_others" name="purpose" value="purpose_vacation_others">
+        <label for="purpose_vacation_others">Vacation/Others</label>
+      </span>
+    </div>
+
+    <br><br></br></br>
+    <input type="submit" value="Submit">
+
   </form>

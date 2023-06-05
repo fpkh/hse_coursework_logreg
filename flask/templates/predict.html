@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Credit status:</h1>
+        <div class="large-text">
+            <h1>{{ predict_content }}</h1>
+        </div><br>
+        <p>{{ predict_value }}</p>
+        <p>{{ predict_threshold }}</p>
+        
+        <br><br>
+        <form action="/" class="boxed">
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+    
+</body>

@@ -115,18 +115,12 @@ button.red {
 .input-group label {
   margin: 10px;
   padding: 10px;
-  /*   align-items: left; */
-
-  /*   flex: 1; */
   color: #61677c;
-  /*   white-space: nowrap; */
 }
 
 .boxed label {
   display: inline-block;
-  /*       width: 200px; */
   padding: 10px;
-  /*     border: solid 2px #ccc; */
   transition: all 0.2s;
 }
 
@@ -135,7 +129,6 @@ button.red {
 }
 
 .boxed input[type="radio"]:checked + label {
-  /*     border: solid 2px green; */
   font-size: 18px;
 }
 

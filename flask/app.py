@@ -28,12 +28,11 @@ def predict():
             input[value] = 1
 
     input = {i:input[i] for i in input if i != 'dummy'}
-    print(input)
 
     augmented = pd.concat([augmented, pd.DataFrame(input, index=[0])], ignore_index=True).fillna(0)
 
     prediction = model.predict_proba(augmented)
-    print(prediction)
+
     if (np.where(model.predict_proba(augmented)[:,1] > THRESHOLD, 1, 0)[0] == 1):
         return render_template('predict.html', predict_content="Denied", predict_value="probability of default: {}".format(round(prediction[:,1][0], 2)), predict_threshold="threshold: {}".format(THRESHOLD))
     

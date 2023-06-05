@@ -1,5 +1,3 @@
-# FROM ubuntu:latest
-# MAINTAINER Fedor Pakhurov 'pahurov04@gmail.com'
 FROM python:3.9
 RUN apt-get update -y
 RUN apt-get install -y python3-pip python3-dev build-essential
